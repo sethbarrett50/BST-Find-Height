@@ -1,0 +1,19 @@
+//Solution to HW6 for CSCI 3400 Fall 2020 at Augusta University
+//Created By Seth Barrett
+public int GetHeight()
+        {
+            if (root == null) return -1;//Test Case for empty BST
+            else if (root.Left == null && root.Right == null) return 0;//Test Case for BST w/ only root node
+            else return CompHeight(root);
+        }
+private int CompHeight(Node cTmp)
+	{
+            if (cTmp == null) return -1;
+            else
+            {
+                int lH = CompHeight(cTmp.Left);
+                int rH = CompHeight(cTmp.Right);
+                if (lH > rH) return lH + 1;
+                else return rH + 1;
+            }
+        }
